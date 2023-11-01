@@ -3,6 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Getting Started
 
 Install packages
+
 ```bash
 npm install
 ```
@@ -18,6 +19,11 @@ See package.json for more scripts
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Issues
+
+- i18n
+  - [cannot use i18n with `output: "export"`](https://nextjs.org/docs/messages/export-no-i18n)
 
 ## Documentation References
 
