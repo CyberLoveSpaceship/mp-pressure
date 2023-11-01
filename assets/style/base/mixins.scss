@@ -1,0 +1,38 @@
+@mixin hover ($is:true, $focus:false, $selector:null, $is-selected:null){
+	@media (hover: hover) {
+		@if ($is){
+			&:hover #{$selector}{
+				@content; 
+			}
+
+			@if ($focus){
+				&:focus-visible #{$selector}{ 
+					outline:none;
+					@content; 
+				}
+			}
+		}@else{
+			&:not(:hover) #{$selector}{ 
+				@content; 
+			}
+		}
+	}
+
+	@if ($is-selected){
+		#{$is-selected}{
+			@content;
+		}
+	}
+}
+
+@mixin is-max-tablet{
+	@media screen and (max-width: 768px) { @content; }
+}
+
+@mixin is-phone{
+	@media screen and (max-width: 640px) { @content; }
+}
+
+@mixin is-widescreen{
+	@media screen and (min-width: 1440px) { @content; }
+}

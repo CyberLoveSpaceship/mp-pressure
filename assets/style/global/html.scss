@@ -1,0 +1,35 @@
+@import "../base/mixins";
+@import "../base/typography";
+
+html{
+    background-color: $color-light;
+    color: $color-dark;
+    @include text;
+}
+
+body{
+    ::selection{
+        background-color: $color-light;
+        color: $color-dark;
+    }
+    p, a, span{
+        &::selection{
+            background-color: $color-dark;
+            color: $color-light;
+        }
+    }
+}
+
+p{
+    margin: 0;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+    @include hover{
+        text-decoration: underline;
+        text-decoration-thickness: 0.04em;
+        text-underline-offset: 0.08em;
+    }
+}

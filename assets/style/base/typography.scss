@@ -1,0 +1,24 @@
+@font-face { 
+    font-family: 'Items', serif;
+    font-weight: 300;
+    font-style: normal;
+    src: url("/fonts/Items/Items-CondensedLight.woff2") format("woff2"),
+        url("/fonts/Items/Items-CondensedLight.otf") format("otf")
+    ;
+}
+
+@mixin text{
+    font-family: 'Items';
+    font-size: 2.8125rem;
+
+    @include is-phone{
+        font-size: 1.75rem;
+    }
+}
+
+@mixin text-large{
+    font-size: 1.222em;
+    @include is-phone{
+        font-size: 1em;
+    }
+}
