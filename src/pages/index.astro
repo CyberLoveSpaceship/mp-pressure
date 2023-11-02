@@ -3,11 +3,28 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <script is:inline>
-function onSubmit() {
+async function onSubmit() {
   let textInputElement = document.querySelector(".textinput");
   let rawCode = textInputElement.value;
-  let cleanPostalCode = rawCode.trim().replaceAll(" ", "");
+  let cleanPostalCode = sanitisePostalCode(rawCode);
   console.log(cleanPostalCode);
+  let json = (
+    await fetch(
+      `https://represent.opennorth.ca/postcodes/${cleanPostalCode}/`,
+      {
+        mode: "cors",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      },
+    )
+  ).json();
+  console.log(json);
+}
+
+function sanitisePostalCode(rawCode) {
+  let cleanPostalCode = rawCode.trim().replaceAll(" ", "").toUpperCase();
+  return cleanPostalCode;
 }
 </script>
 
