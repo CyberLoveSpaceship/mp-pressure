@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<script is:inline>
+function onSubmit() {
+  let textInputElement = document.querySelector(".textinput");
+  let rawCode = textInputElement.value;
+  let cleanPostalCode = rawCode.trim().replaceAll(" ", "");
+  console.log(cleanPostalCode);
+}
+</script>
+
+<Layout title="MP Pressure">
+  <main>
+    <div action="" class="form">
+      <label class="instructions">Enter your postal code</label>
+      <input type="text" value="Postal code" class="textinput" />
+      <button class="submit" onclick="
+      onSubmit() ">Next</button>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: var(--margin-base);
+    padding: 1rem;
+    /* width: 800px; */
+    /* max-width: calc(100% - 2rem); */
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .form {
+    margin: auto;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+  .textinput {
+    background: var(--color-bg);
+    border: solid 2px var(--color-fg);
+    color: var(--color-fg);
+    padding: var(--padding-single);
+  }
+  .link-card-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr)); */
+    gap: 2rem;
+    padding: 0;
+  }
+</style>
