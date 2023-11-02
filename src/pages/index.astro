@@ -1,42 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import RepresentativeSearch from "../components/react/RepresentativeSearch";
+import PostalCodeForm from "../components/PostalCodeForm.astro";
 ---
 
-<script is:inline>
-async function onSubmit() {
-  let textInputElement = document.querySelector(".textinput");
-  let rawCode = textInputElement.value;
-  let cleanPostalCode = sanitisePostalCode(rawCode);
-  console.log(cleanPostalCode);
-  let json = (
-    await fetch(
-      `https://represent.opennorth.ca/postcodes/${cleanPostalCode}/`,
-      {
-        mode: "cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      },
-    )
-  ).json();
-  console.log(json);
-}
-
-function sanitisePostalCode(rawCode) {
-  let cleanPostalCode = rawCode.trim().replaceAll(" ", "").toUpperCase();
-  return cleanPostalCode;
-}
-</script>
-
 <Layout title="MP Pressure">
-  <main>
-    <div action="" class="form">
-      <label class="instructions">Enter your postal code</label>
-      <input type="text" value="Postal code" class="textinput" />
-      <button class="submit" onclick="
-      onSubmit() ">Next</button>
-    </div>
-  </main>
+  <RepresentativeSearch client:load />
+  <PostalCodeForm text="Enter your postal code" />
 </Layout>
 
 <style>
@@ -55,19 +25,6 @@ function sanitisePostalCode(rawCode) {
     line-height: 1;
     text-align: center;
     margin-bottom: 1em;
-  }
-  .form {
-    margin: auto;
-    max-width: 250px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-  }
-  .textinput {
-    background: var(--color-bg);
-    border: solid 2px var(--color-fg);
-    color: var(--color-fg);
-    padding: var(--padding-single);
   }
   .link-card-grid {
     display: grid;

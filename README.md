@@ -24,7 +24,13 @@ Represent is free up to 60 requests per minute (86,400 queries/day). If you need
 
 For a browsable, HTML version of the JSON response, add a `format=apibrowser` query parameter. Add `pretty=1` to just indent the raw JSON.
 
-# Astro Starter Kit: Basics
+## Astro Starter Kit: Basics
+
+### Sharing state between components
+
+- Use [Nano Stores](https://docs.astro.build/en/core-concepts/sharing-state/) library.
+  - lightweight
+  - framework-agnostic
 
 ```sh
 npm create astro@latest -- --template basics
