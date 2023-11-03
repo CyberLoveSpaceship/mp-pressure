@@ -8,11 +8,12 @@
 
 .form label {
   font-weight: var(--font-weight-heavy);
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-larger);
 }
 
 .form button {
   font-weight: var(--font-weight-heavy);
+  font-size: var(--font-size-large);
   border-radius: 0;
   border: none;
   padding: var(--padding-single);

@@ -9,7 +9,9 @@
   --color-bg-dim: #333;
   --color-accent: red;
   --font-weight-heavy: 500;
-  --font-size-large: 1.2rem;
+  --font-weight-normal: 300;
+  --font-size-larger: 1.2rem;
+  --font-size-large: 1.1rem;
   --font-size-small: 0.8rem;
   --transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   --padding-base: 1rem;
@@ -21,7 +23,7 @@ body {
   margin: 0;
   padding: var(--padding-base);
   font-family: system-ui, sans-serif;
-  font-weight: 200;
+  font-weight: var(--font-weight-normal);
   font-size: 16px;
   background: var(--color-bg);
   color: var(--color-fg);
