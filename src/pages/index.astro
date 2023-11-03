@@ -1,13 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import RepresentativeSearch from "../components/react/RepresentativeSearch";
-import PostalCodeForm from "../components/PostalCodeForm.astro";
+import RepSearch from "../components/react/RepSearch";
+import RepResults from "../components/react/RepResults";
 ---
 
 <Layout title="MP Pressure">
-  <RepresentativeSearch client:load />
+  <RepSearch client:load />
   <!-- <PostalCodeForm text="Enter your postal code" /> -->
+  <RepResults client:load />
 </Layout>
+
+<!-- The following script is added for testing purposes only. -->
+<script src="../scripts/test_results.js"></script>
 
 <style>
   main {

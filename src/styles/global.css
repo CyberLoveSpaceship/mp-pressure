@@ -3,20 +3,27 @@
 * This file is meant for global styles, ideally only variables and html elements.
 * */
 :root {
-  --color-bg: black;
+  --color-bg: #111;
   --color-fg: white;
-  --color-dim: grey;
+  --color-fg-dim: grey;
+  --color-bg-dim: #333;
   --color-accent: red;
+  --font-size-large: 1.2rem;
   --font-size-small: 0.8rem;
   --transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   --margin-base: 1rem;
   --margin-header-top: 1rem;
-  --margin-header-btm: 4rem;
-  --padding-single: 0.5rem;
+  --margin-header-btm: 1rem;
+  --padding-single: 0.4rem;
   --gap: 1rem;
 }
 body {
+  margin: 0;
+  padding: 1rem;
+  height: 100vh;
   font-family: system-ui, sans-serif;
+  font-weight: 200;
+  font-size: 13px;
   background: var(--color-bg);
   color: var(--color-fg);
   /* width: 100vw; */
