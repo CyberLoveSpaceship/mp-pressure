@@ -1,10 +1,10 @@
 import React from "react";
 import { useStore } from "@nanostores/react";
 import { $searched, $postalCode, $results } from "../../scripts/state";
-import RepresentativeResult from "./RepresentativeResult";
-import "./RepresentativeSearch.css";
+import RepResults from "./RepResults";
+import "./RepSearch.css";
 
-function RepresentativeSearch() {
+function RepresentativeSearch({ ResultGrid }) {
   const [results, setResults] = [useStore($results), $results.set];
   const [searched, setSearched] = [useStore($searched), $searched.set];
   const [postalCode, setPostalCode] = [useStore($postalCode), $postalCode.set];
@@ -59,7 +59,7 @@ function RepresentativeSearch() {
   return (
     <div>
       <div className="form">
-        <label htmlFor="postalCode">Enter Postal Code:</label>
+        <label htmlFor="postalCode">Enter your postal code</label>
         <input
           type="text"
           id="postalCode"
@@ -68,20 +68,6 @@ function RepresentativeSearch() {
         />
         <button onClick={fetchRepresentatives}>Next</button>
         {/* <button onClick={clearSearch}>Clear</button> */}
-      </div>
-
-      <div className="results">
-        <ul>
-          {searched ? (
-            results.length > 0 ? (
-              results.map((rep, index) => (
-                <RepresentativeResult rep={rep} key={index} />
-              ))
-            ) : (
-              <li>No representatives found</li>
-            )
-          ) : null}
-        </ul>
       </div>
     </div>
   );

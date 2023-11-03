@@ -1,0 +1,27 @@
+.form {
+  margin: 4rem auto;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.form label {
+  font-weight: var(--font-weight-heavy);
+  font-size: var(--font-size-large);
+}
+
+.form button {
+  font-weight: var(--font-weight-heavy);
+  border-radius: 0;
+  border: none;
+  padding: var(--padding-single);
+  margin-top: var(--gap);
+}
+
+#postalCode {
+  background: var(--color-bg);
+  border: solid 2px var(--color-fg);
+  color: var(--color-fg);
+  padding: var(--padding-single);
+}

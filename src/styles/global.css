@@ -8,6 +8,7 @@
   --color-fg-dim: grey;
   --color-bg-dim: #333;
   --color-accent: red;
+  --font-weight-heavy: 500;
   --font-size-large: 1.2rem;
   --font-size-small: 0.8rem;
   --transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
@@ -16,6 +17,7 @@
   --margin-header-btm: 1rem;
   --padding-single: 0.4rem;
   --gap: 1rem;
+  --content-max-width: 960px;
 }
 body {
   margin: 0;
@@ -30,7 +32,7 @@ body {
 }
 a {
   color: var(--color-fg);
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 a:hover {
   text-decoration: underline;
