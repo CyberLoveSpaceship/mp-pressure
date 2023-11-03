@@ -13,6 +13,7 @@
   margin: none;
   padding: 1rem;
   background: var(--color-bg-dim);
+  border-radius: var(--border-radius);
   line-height: 1.5rem;
   flex-grow: 1;
   /* max-width: calc(var(--content-max-width) * 0.5 - var(--gap)); */
