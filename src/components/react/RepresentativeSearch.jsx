@@ -73,8 +73,8 @@ function RepresentativeSearch() {
         value={postalCode}
         onChange={(e) => setPostalCode(e.target.value)}
       />
-      <button onClick={fetchRepresentatives}>Search</button>
-      <button onClick={clearSearch}>Clear</button>
+      <button onClick={fetchRepresentatives}>Next</button>
+      {/* <button onClick={clearSearch}>Clear</button> */}
 
       <ul>
         {searched ? (

@@ -4,13 +4,29 @@ A tool to ease barriers on reaching out to local representatives. It takes a use
 
 [Website]()
 
-## About
+## Roadmap
+
+### mvp
+
+- [x] postal code input
+- [x] retrieve results from API
+- [ ] debugging/error handling input
+- [ ] styling results (prob could refactor into comps)
+- [ ] adding email/script templates
+- [ ] sticky nav bar
+
+### nice to have
+
+- [ ] locale switching (for french)
+- [ ] second page with links to other resources
+- [ ] read content from markdown for links
+- [ ] cms (brrrrrr)
+
+## Development
 
 The tool uses the [Represent API](https://represent.opennorth.ca/) to gather info on representatives based on a postal code.
 
 The site is currently built with Astro with React components.
-
-## Development
 
 To start, run:
 
