@@ -4,7 +4,7 @@ import { $searched, $postalCode, $results } from "../../scripts/state";
 import RepResults from "./RepResults";
 import "./RepSearch.css";
 
-function RepresentativeSearch({ ResultGrid }) {
+function RepresentativeSearch() {
   const [results, setResults] = [useStore($results), $results.set];
   const [searched, setSearched] = [useStore($searched), $searched.set];
   const [postalCode, setPostalCode] = [useStore($postalCode), $postalCode.set];

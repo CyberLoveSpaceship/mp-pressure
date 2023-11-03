@@ -5,29 +5,37 @@ import RepResults from "../components/react/RepResults";
 ---
 
 <Layout title="MP Pressure">
-  <RepSearch client:load />
-  <!-- <PostalCodeForm text="Enter your postal code" /> -->
-  <RepResults client:load />
+  <div id="searchView" class="view">
+    <RepSearch client:load />
+  </div>
+  <div id="resultsView" class="view">
+    <h2 class="resultsHeader">Who to contact</h2>
+    <RepResults client:load />
+  </div>
 </Layout>
 
+<script>
+  import { $searched } from "../scripts/state";
+
+  const searchViewElement = document.querySelector("#searchView");
+  const resultsViewElement = document.querySelector("#resultsView");
+
+  $searched.subscribe((searched) => {
+    if (searched) {
+      searchViewElement.style.display = "none";
+      resultsViewElement.style.display = "block";
+    }
+  });
+</script>
+
 <!-- The following script is added for testing purposes only. -->
-<script src="../scripts/test_results.js"></script>
+<!-- <script src="../scripts/test_results.js"></script> -->
 
 <style>
-  main {
-    margin: var(--margin-base);
-    padding: 1rem;
-    /* width: 800px; */
-    /* max-width: calc(100% - 2rem); */
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
+  .view {
+    margin: 15vh auto;
   }
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
+  #resultsView {
+    display: none;
   }
 </style>

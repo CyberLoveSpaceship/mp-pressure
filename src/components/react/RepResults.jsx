@@ -7,15 +7,15 @@ export default function RepResults() {
   const results = useStore($results);
 
   return (
-    <ul id="resultsGrid">
-      {searched ? (
-        results.length > 0 ? (
+    <div>
+      <ul id="resultsGrid">
+        {results.length > 0 ? (
           results.map((rep, index) => <RepCard rep={rep} key={index} />)
         ) : (
           <li>No representatives found</li>
-        )
-      ) : null}
-    </ul>
+        )}
+      </ul>
+    </div>
   );
 }
 
