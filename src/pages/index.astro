@@ -24,12 +24,15 @@ import RepResults from "../components/react/RepResults";
     if (searched) {
       searchViewElement.style.display = "none";
       resultsViewElement.style.display = "block";
+    } else {
+      searchViewElement.style.display = "block";
+      resultsViewElement.style.display = "none";
     }
   });
 </script>
 
 <!-- The following script is added for testing purposes only. -->
-<script src="../scripts/test_results.js"></script>
+<!-- <script src="../scripts/test_results.js"></script> -->
 
 <style>
   .view {
