@@ -1,18 +1,10 @@
 import React from "react";
-import "./RepresentativeSearch.css";
 import { useStore } from "@nanostores/react";
 import { $searched, $postalCode, $results } from "../../scripts/state";
+import RepresentativeResult from "./RepresentativeResult";
+import "./RepresentativeSearch.css";
 
 function RepresentativeSearch() {
-  // const [postalCode, setPostalCode] = useState("");
-  // const [results, setResults] = useState([]);
-  // const [searched, setSearched] = useState(false);
-  // const searched = useStore($searched);
-  // const setSearched = $searched.set;
-  // const results = useStore($results);
-  // const setResults = $results.set;
-  // const postalCode = useStore($postalCode);
-  // const setPostalCode = $postalCode.set;
   const [results, setResults] = [useStore($results), $results.set];
   const [searched, setSearched] = [useStore($searched), $searched.set];
   const [postalCode, setPostalCode] = [useStore($postalCode), $postalCode.set];
@@ -65,46 +57,32 @@ function RepresentativeSearch() {
   };
 
   return (
-    <div className="form">
-      <label htmlFor="postalCode">Enter Postal Code:</label>
-      <input
-        type="text"
-        id="postalCode"
-        value={postalCode}
-        onChange={(e) => setPostalCode(e.target.value)}
-      />
-      <button onClick={fetchRepresentatives}>Next</button>
-      {/* <button onClick={clearSearch}>Clear</button> */}
+    <div>
+      <div className="form">
+        <label htmlFor="postalCode">Enter Postal Code:</label>
+        <input
+          type="text"
+          id="postalCode"
+          value={postalCode}
+          onChange={(e) => setPostalCode(e.target.value)}
+        />
+        <button onClick={fetchRepresentatives}>Next</button>
+        {/* <button onClick={clearSearch}>Clear</button> */}
+      </div>
 
-      <ul>
-        {searched ? (
-          results.length > 0 ? (
-            results.map((rep, index) => (
-              <li key={index}>
-                <strong>Name:</strong> {rep.name}
-                <br />
-                <strong>Title:</strong> {rep.elected_office || "N/A"}
-                <br />
-                <strong>Party:</strong> {rep.party_name || "N/A"}
-                <br />
-                <strong>Email:</strong> {rep.email || "N/A"}
-                <br />
-                <strong>Phone:</strong>{" "}
-                {rep.offices && rep.offices.length > 0
-                  ? rep.offices[0].tel
-                  : "N/A"}
-                <br />
-                <strong>Address:</strong>{" "}
-                {rep.offices && rep.offices.length > 0
-                  ? rep.offices[0].postal
-                  : "N/A"}
-              </li>
-            ))
-          ) : (
-            <li>No representatives found</li>
-          )
-        ) : null}
-      </ul>
+      <div className="results">
+        <ul>
+          {searched ? (
+            results.length > 0 ? (
+              results.map((rep, index) => (
+                <RepresentativeResult rep={rep} key={index} />
+              ))
+            ) : (
+              <li>No representatives found</li>
+            )
+          ) : null}
+        </ul>
+      </div>
     </div>
   );
 }
