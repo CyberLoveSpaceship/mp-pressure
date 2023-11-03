@@ -6,7 +6,7 @@ import PostalCodeForm from "../components/PostalCodeForm.astro";
 
 <Layout title="MP Pressure">
   <RepresentativeSearch client:load />
-  <PostalCodeForm text="Enter your postal code" />
+  <!-- <PostalCodeForm text="Enter your postal code" /> -->
 </Layout>
 
 <style>
@@ -25,11 +25,5 @@ import PostalCodeForm from "../components/PostalCodeForm.astro";
     line-height: 1;
     text-align: center;
     margin-bottom: 1em;
-  }
-  .link-card-grid {
-    display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr)); */
-    gap: 2rem;
-    padding: 0;
   }
 </style>

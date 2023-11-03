@@ -4,16 +4,13 @@
 /node_modules
 /.pnp
 .pnp.js
+bun.lockb
 
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
-
 # production
-/build
+dist
 
 # misc
 .DS_Store
@@ -27,12 +24,16 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# netlify
+.netlify
+
 # vercel
 .vercel
+
+# next
+.next
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-bun.lockb
-.netlify/functions-internal
-dist
+
