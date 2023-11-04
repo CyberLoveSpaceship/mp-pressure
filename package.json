@@ -16,9 +16,12 @@
     "astro": "^3.4.2",
     "nanostores": "^0.9.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
+    "eslint": "^8.53.0",
+    "eslint-config-lostfictions": "^6.0.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.1"
   }
