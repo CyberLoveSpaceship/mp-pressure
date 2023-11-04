@@ -1,5 +1,4 @@
 // @ts-check
-// @ts-check
 import { useStore } from "@nanostores/react";
 import { $searched, $postalCode, $results } from "../../scripts/state";
 
