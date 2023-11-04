@@ -1,16 +1,13 @@
-import { useStore } from "@nanostores/react";
-import { $results, $searched } from "../../scripts/state";
 import "./RepResults.css";
 
-export default function RepResults() {
-  const searched = useStore($searched);
-  const results = useStore($results);
-
+export default function RepResults(
+  /** @type {{ data: unknown[] }} */ { data },
+) {
   return (
     <div>
       <ul id="resultsGrid">
-        {results.length > 0 ? (
-          results.map((rep, index) => <RepCard rep={rep} key={index} />)
+        {data.length > 0 ? (
+          data.map((rep, index) => <RepCard rep={rep} key={index} />)
         ) : (
           <li>No representatives found</li>
         )}

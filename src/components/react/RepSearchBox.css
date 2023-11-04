@@ -11,7 +11,7 @@
   font-size: var(--font-size-larger);
 }
 
-.form button {
+.form input[type="submit"] {
   font-weight: var(--font-weight-heavy);
   font-size: var(--font-size-large);
   border-radius: 0;
