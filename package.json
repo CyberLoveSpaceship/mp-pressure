@@ -2,6 +2,7 @@
   "name": "mp-pressure",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "npm@9.8.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
