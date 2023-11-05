@@ -2,6 +2,7 @@
   "name": "mp-pressure",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "npm@9.8.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,15 +11,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^3.0.3",
     "@astrojs/react": "^3.0.4",
-    "@nanostores/react": "^0.7.1",
     "astro": "^3.4.2",
-    "nanostores": "^0.9.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.47.0",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
+    "eslint": "^8.53.0",
+    "eslint-config-lostfictions": "^6.0.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.1"
   }

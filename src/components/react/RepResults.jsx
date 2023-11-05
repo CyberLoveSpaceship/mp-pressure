@@ -1,16 +1,13 @@
-import { useStore } from "@nanostores/react";
-import { $results, $searched } from "../../scripts/state";
 import "./RepResults.css";
 
-export default function RepResults() {
-  const searched = useStore($searched);
-  const results = useStore($results);
-
+export default function RepResults(
+  /** @type {{ data: unknown[] }} */ { data },
+) {
   return (
     <div>
       <ul id="resultsGrid">
-        {results.length > 0 ? (
-          results.map((rep, index) => <RepCard rep={rep} key={index} />)
+        {data.length > 0 ? (
+          data.map((rep, index) => <RepCard rep={rep} key={index} />)
         ) : (
           <li>No representatives found</li>
         )}
@@ -27,7 +24,7 @@ function RepCard({ rep }) {
   const hasOffice = rep.offices && rep.offices.length > 0;
   const mainOffice =
     rep.offices?.find(
-      (office) => office.type && office.type == "constituency",
+      (office) => office.type && office.type === "constituency",
     ) || rep.offices[0];
 
   const name = rep.name;
@@ -39,27 +36,31 @@ function RepCard({ rep }) {
   const address = hasOffice ? mainOffice.postal : none;
 
   return (
-    <li class="repCard">
-      <div class="repHeader">
-        <div class="repName">{name}</div>
-        <div class="repDetails">
+    <li className="repCard">
+      <div className="repHeader">
+        <div className="repName">{name}</div>
+        <div className="repDetails">
           {title}, {district}
         </div>
-        <div class="repParty">{party}</div>
+        <div className="repParty">{party}</div>
       </div>
-      <div class="repContact">
-        <span class="icon">P </span>
-        <div class="repPhone">
-          {phones.length == 0
+      <div className="repContact">
+        <span className="icon">P </span>
+        <div className="repPhone">
+          {phones.length === 0
             ? none
-            : phones.map((phone) => <a href="">{phone}</a>)}
+            : phones.map((phone) => (
+                <a key={phone} href={`tel:${phone}`}>
+                  {phone}
+                </a>
+              ))}
         </div>
-        <span class="icon">E </span>
-        <div class="email">
+        <span className="icon">E </span>
+        <div className="email">
           <a href="">{email}</a>
         </div>
-        <span class="icon">A </span>
-        <div class="address">{address}</div>
+        <span className="icon">A </span>
+        <div className="address">{address}</div>
       </div>
     </li>
   );
