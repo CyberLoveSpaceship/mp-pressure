@@ -7,10 +7,12 @@ import RepSearchBox from "./RepSearchBox";
 import RepResults from "./RepResults";
 
 import styles from "./RepSearch.module.css";
+import useLocale from "~/use-locale";
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 export default function RepresentativeSearch() {
+  const l = useLocale();
   const [postCode, setPostCode] = useState<string | null>(null);
   const {
     data,
@@ -31,17 +33,17 @@ export default function RepresentativeSearch() {
         <RepSearchBox setPostCode={setPostCode} />
       </div>
       {loading ? (
-        <div>Loading...</div>
+        <div>{l("loading")}</div>
       ) : error ? (
         <div>
-          <div>An error occurred:</div>
+          <div>{l("error")}</div>
           <pre>
             <code>{error.toString()}</code>
           </pre>
         </div>
       ) : data ? (
         <div id="resultsView" className={styles["view"]}>
-          <h2 className="resultsHeader">Who to contact</h2>
+          <h2 className="resultsHeader">{l("who-to-contact")}</h2>
           <RepResults data={data["representatives_centroid"]} />
         </div>
       ) : null}
