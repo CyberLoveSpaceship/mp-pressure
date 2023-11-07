@@ -20,7 +20,7 @@ function RepCard({ rep }) {
   const none = "N/A";
 
   // some reps have multiple offices, with "legislature" giving basic info like "House of Commons, Ottawa" for an address
-  // this makes sure to get to more specific address/contact morely ikely to respond
+  // this makes sure to get to more specific address/contact more likely to respond
   const hasOffice = rep.offices && rep.offices.length > 0;
   const mainOffice =
     rep.offices?.find(
