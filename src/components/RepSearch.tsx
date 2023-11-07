@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import useSWRImmutable from "swr/immutable";
 
 import RepSearchBox from "./RepSearchBox";
@@ -13,7 +13,8 @@ import useLocale from "~/use-locale";
 
 export default function RepresentativeSearch() {
   const l = useLocale();
-  const [postCode, setPostCode] = useState<string | null>(null);
+  const search = useSearchParams();
+  const postCode = search.get("p");
   const {
     data,
     error,
@@ -30,7 +31,7 @@ export default function RepresentativeSearch() {
   return (
     <>
       <div id="searchView" className="mx-auto my-16">
-        <RepSearchBox setPostCode={setPostCode} />
+        <RepSearchBox />
       </div>
 
       {loading ? (

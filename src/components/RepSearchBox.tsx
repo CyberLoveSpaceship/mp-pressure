@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 import "./RepSearchBox.css";
@@ -10,12 +11,12 @@ type Inputs = {
 
 const postCodePattern = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
 
-export default function RepresentativeSearchBox({
-  setPostCode,
-}: {
-  setPostCode: (postCode: string) => void;
-}) {
+export default function RepresentativeSearchBox() {
   const l = useLocale();
+
+  const pathname = usePathname();
+  const search = useSearchParams();
+  const router = useRouter();
 
   const {
     register,
@@ -25,8 +26,11 @@ export default function RepresentativeSearchBox({
 
   const onSubmit: SubmitHandler<Inputs> = useCallback(
     ({ postCode }) =>
-      setPostCode(postCode.replaceAll(/[\s-]+/g, "").toUpperCase()),
-    [setPostCode],
+      router.push(
+        `${pathname}?p=${postCode.replaceAll(/[\s-]+/g, "").toUpperCase()}`,
+        { scroll: false },
+      ),
+    [router, pathname],
   );
 
   return (
@@ -36,7 +40,7 @@ export default function RepresentativeSearchBox({
       <input
         type="text"
         id="postalCode"
-        defaultValue=""
+        defaultValue={search.get("p") ?? ""}
         {...register("postCode", {
           required: true,
           pattern: postCodePattern,
