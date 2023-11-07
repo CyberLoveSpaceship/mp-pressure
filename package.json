@@ -1,27 +1,34 @@
 {
   "name": "mp-pressure",
-  "type": "module",
-  "version": "0.0.1",
-  "packageManager": "npm@9.8.1",
+  "private": true,
+  "packageManager": "npm@10.2.3",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "next dev",
+    "build": "next build",
+    "test": "run-p -cl test:*",
+    "test:eslint": "eslint --color '{src,test}/**/*.{cjs,mjs,js,ts,tsx}'",
+    "test:prettier": "prettier -l '{src,test}/**/*.{cjs,mjs,js,ts,tsx}'",
+    "test:ts": "tsc --pretty --noEmit",
+    "prettier": "prettier --write '{src,test}/**/*.{cjs,mjs,js,ts,tsx}'"
   },
   "dependencies": {
-    "@astrojs/react": "^3.0.4",
-    "astro": "^3.4.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-hook-form": "^7.47.0",
+    "next": "14.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.48.2",
     "swr": "^2.2.4"
   },
   "devDependencies": {
-    "eslint": "^8.53.0",
+    "@types/node": "20.8.10",
+    "@types/react": "18.2.36",
+    "@types/react-dom": "18.2.14",
+    "autoprefixer": "10.4.16",
+    "eslint": "8.53.0",
     "eslint-config-lostfictions": "^6.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "8.4.31",
     "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.1"
+    "tailwindcss": "3.3.5",
+    "typescript": "5.2.2"
   }
 }
