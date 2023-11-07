@@ -1,5 +1,7 @@
-import { l, type Params } from "~/locale";
+import { Suspense } from "react";
+
 import LocaleSwitcher from "./LocaleSwitcher";
+import { l, type Params } from "~/locale";
 
 export default function Header({ lang }: Params) {
   return (
@@ -8,7 +10,9 @@ export default function Header({ lang }: Params) {
         <div className="text-lg">🇵&#127480; {l(lang, "title")}</div>
         <div>{l(lang, "description")}</div>
       </div>
-      <LocaleSwitcher />
+      <Suspense>
+        <LocaleSwitcher />
+      </Suspense>
     </div>
   );
 }
