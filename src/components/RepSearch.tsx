@@ -5,6 +5,7 @@ import useSWRImmutable from "swr/immutable";
 
 import RepSearchBox from "./RepSearchBox";
 import RepResults from "./RepResults";
+import Dropdowns from "./Dropdowns";
 
 import styles from "./RepSearch.module.css";
 
@@ -43,6 +44,7 @@ export default function RepresentativeSearch() {
         <div id="resultsView" className={styles["view"]}>
           <h2 className="resultsHeader">Who to contact</h2>
           <RepResults data={data["representatives_centroid"]} />
+          <Dropdowns />
         </div>
       ) : null}
     </>
