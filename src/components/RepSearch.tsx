@@ -7,9 +7,10 @@ import RepSearchBox from "./RepSearchBox";
 import RepResults from "./RepResults";
 import Dropdowns from "./Dropdowns";
 
+import { fetcher } from "~/app/utils";
 import styles from "./RepSearch.module.css";
-
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
+import { SWRResponse } from "swr";
+import { ErrorState, LoadingState } from "./SWRStates";
 
 export default function RepresentativeSearch() {
   const [postCode, setPostCode] = useState<string | null>(null);
@@ -31,15 +32,11 @@ export default function RepresentativeSearch() {
       <div id="searchView" className={styles["view"]}>
         <RepSearchBox setPostCode={setPostCode} />
       </div>
+
       {loading ? (
-        <div>Loading...</div>
+        <LoadingState />
       ) : error ? (
-        <div>
-          <div>An error occurred:</div>
-          <pre>
-            <code>{error.toString()}</code>
-          </pre>
-        </div>
+        <ErrorState error={error} />
       ) : data ? (
         <div id="resultsView" className={styles["view"]}>
           <h2 className="resultsHeader">Who to contact</h2>
