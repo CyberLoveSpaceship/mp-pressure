@@ -9,9 +9,7 @@ import {
 import Markdown from "react-markdown";
 import useSWRImmutable from "swr/immutable";
 import { LoadingState, ErrorState } from "./SWRStates";
-import { fetcher } from "~/app/utils";
-
-// import "./Dropdowns.css";
+import { fetcher } from "~/utils";
 
 export type DropdownContent = {
   uuid: number;
@@ -20,6 +18,7 @@ export type DropdownContent = {
 };
 
 export default function Dropdowns() {
+  const headingIcon = "+";
   const contentURL = "/api/content";
   const {
     data,
@@ -39,7 +38,10 @@ export default function Dropdowns() {
             <AccordionItem key={item.uuid}>
               <AccordionItemHeading className="text-lg mb-4 px-2 border-solid border-b-2 border-white">
                 <AccordionItemButton>
-                  <DropdownHeading text={item.heading} />
+                  <div className="flex justify-between">
+                    <h2>{item.heading}</h2>
+                    <span>{headingIcon}</span>
+                  </div>
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
@@ -52,25 +54,5 @@ export default function Dropdowns() {
         </Accordion>
       ) : null}
     </>
-  );
-}
-
-function DropdownHeading({ text }: { text: string }) {
-  const icon = "+";
-
-  return (
-    <div className="flex justify-between">
-      <h2>{text}</h2>
-      <span>{icon}</span>
-    </div>
-  );
-}
-
-function DropdownItem() {
-  return (
-    <div>
-      <h3>On the phone</h3>
-      <p>some text here.</p>
-    </div>
   );
 }

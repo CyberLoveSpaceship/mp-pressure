@@ -7,7 +7,7 @@ import RepSearchBox from "./RepSearchBox";
 import RepResults from "./RepResults";
 import Dropdowns from "./Dropdowns";
 
-import { fetcher } from "~/app/utils";
+import { fetcher } from "~/utils";
 import { ErrorState, LoadingState } from "./SWRStates";
 import useLocale from "~/use-locale";
 
