@@ -9,7 +9,7 @@ export async function GET() {
   const data = await Promise.all(
     fileNames.map(async (fileName, index) => {
       const filePath = path.join(dropdownsContentPath, fileName);
-      const heading = path.parse(fileName).name;
+      const heading = path.parse(fileName).name.replaceAll(/^\d-/g, "");
       const content = await fs.readFile(filePath, { encoding: "utf8" });
       return {
         uuid: index,
