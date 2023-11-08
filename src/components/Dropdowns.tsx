@@ -11,6 +11,8 @@ import useSWRImmutable from "swr/immutable";
 import { LoadingState, ErrorState } from "./SWRStates";
 import { fetcher } from "~/app/utils";
 
+// import "./Dropdowns.css";
+
 export type DropdownContent = {
   uuid: number;
   heading: string;
@@ -35,13 +37,15 @@ export default function Dropdowns() {
         <Accordion allowZeroExpanded>
           {data.map((item: DropdownContent) => (
             <AccordionItem key={item.uuid}>
-              <AccordionItemHeading className="text-lg px-2 border-solid border-b-2 border-white">
+              <AccordionItemHeading className="text-lg mb-4 px-2 border-solid border-b-2 border-white">
                 <AccordionItemButton>
                   <DropdownHeading text={item.heading} />
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
-                <Markdown>{item.content}</Markdown>
+                <div className="mb-4 p-2 prose prose-invert prose-h1:text-xl prose-h2:text-lg prose-h3:text-base ">
+                  <Markdown>{item.content}</Markdown>
+                </div>
               </AccordionItemPanel>
             </AccordionItem>
           ))}

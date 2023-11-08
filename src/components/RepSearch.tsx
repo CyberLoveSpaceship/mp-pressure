@@ -29,7 +29,7 @@ export default function RepresentativeSearch() {
 
   return (
     <>
-      <div id="searchView" className={styles["view"]}>
+      <div id="searchView" className="mx-auto my-16">
         <RepSearchBox setPostCode={setPostCode} />
       </div>
 
@@ -38,10 +38,15 @@ export default function RepresentativeSearch() {
       ) : error ? (
         <ErrorState error={error} />
       ) : data ? (
-        <div id="resultsView" className={styles["view"]}>
-          <h2 className="resultsHeader">Who to contact</h2>
-          <RepResults data={data["representatives_centroid"]} />
-          <Dropdowns />
+        <div id="resultsView" className="mx-auto my-16 flex flex-col gap-10">
+          <div>
+            <h2 className="mb-4 text-xl font-medium">Who to contact</h2>
+            <RepResults data={data["representatives_centroid"]} />
+          </div>
+          <div>
+            <h2 className="mb-4 text-xl font-medium">Notes</h2>
+            <Dropdowns />
+          </div>
         </div>
       ) : null}
     </>
