@@ -2,11 +2,11 @@
 
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
+import { l, type Params } from "~/locale";
 
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { l, type Params } from "~/locale";
 
 // const inter = Inter({ subsets: ["latin"] });
 

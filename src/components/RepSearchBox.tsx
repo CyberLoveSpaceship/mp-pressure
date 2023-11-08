@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 import "./RepSearchBox.css";
+import useLocale from "~/use-locale";
 
 type Inputs = {
   postCode: string;
@@ -14,6 +15,8 @@ export default function RepresentativeSearchBox({
 }: {
   setPostCode: (postCode: string) => void;
 }) {
+  const l = useLocale();
+
   const {
     register,
     handleSubmit,
@@ -29,7 +32,7 @@ export default function RepresentativeSearchBox({
   return (
     // eslint-disable-next-line @typescript-eslint/no-misused-promises -- this is what rhf recommends!
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="postalCode">Enter your postal code</label>
+      <label htmlFor="postalCode">{l("enter-postal")}</label>
       <input
         type="text"
         id="postalCode"
@@ -40,15 +43,13 @@ export default function RepresentativeSearchBox({
         })}
       />
       {errors.postCode?.type === "required" && (
-        <p role="alert">Input your postal code.</p>
+        <p role="alert">{l("error-input-postal")}</p>
       )}
       {errors.postCode?.type === "pattern" && (
-        <p role="alert">
-          Postal code should be in the format &quot;H0H 0H0&quot;.
-        </p>
+        <p role="alert">{l("error-postal-format")}</p>
       )}
 
-      <input type="submit" value="Next" />
+      <input type="submit" value={l("search-button")} />
     </form>
   );
 }

@@ -1,15 +1,19 @@
 import "./RepResults.css";
 
+import useLocale from "~/use-locale";
+
 export default function RepResults(
   /** @type {{ data: unknown[] }} */ { data },
 ) {
+  const l = useLocale();
+
   return (
     <div>
       <ul id="resultsGrid">
         {data.length > 0 ? (
           data.map((rep, index) => <RepCard rep={rep} key={index} />)
         ) : (
-          <li>No representatives found</li>
+          <li>{l("no-rep-result")}</li>
         )}
       </ul>
     </div>

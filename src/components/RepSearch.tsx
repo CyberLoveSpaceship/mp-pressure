@@ -8,11 +8,11 @@ import RepResults from "./RepResults";
 import Dropdowns from "./Dropdowns";
 
 import { fetcher } from "~/app/utils";
-import styles from "./RepSearch.module.css";
-import { SWRResponse } from "swr";
 import { ErrorState, LoadingState } from "./SWRStates";
+import useLocale from "~/use-locale";
 
 export default function RepresentativeSearch() {
+  const l = useLocale();
   const [postCode, setPostCode] = useState<string | null>(null);
   const {
     data,
@@ -40,11 +40,11 @@ export default function RepresentativeSearch() {
       ) : data ? (
         <div id="resultsView" className="mx-auto my-16 flex flex-col gap-10">
           <div>
-            <h2 className="mb-4 text-xl font-medium">Who to contact</h2>
+            <h2 className="mb-4 text-xl font-medium">{l("who-to-contact")}</h2>
             <RepResults data={data["representatives_centroid"]} />
           </div>
           <div>
-            <h2 className="mb-4 text-xl font-medium">Notes</h2>
+            <h2 className="mb-4 text-xl font-medium">{l("notes")}</h2>
             <Dropdowns />
           </div>
         </div>
