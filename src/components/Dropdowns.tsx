@@ -6,7 +6,52 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 
-export function DropdownHeading({ text }: { text: string }) {
+import Markdown from "react-markdown";
+import useSWRImmutable from "swr/immutable";
+import { LoadingState, ErrorState } from "./SWRStates";
+import { fetcher } from "~/app/utils";
+
+export type DropdownContent = {
+  uuid: number;
+  heading: string;
+  content: string;
+};
+
+export default function Dropdowns() {
+  const contentURL = "/api/content";
+  const {
+    data,
+    error,
+    isValidating: loading,
+  } = useSWRImmutable(contentURL, fetcher);
+
+  return (
+    <>
+      {loading ? (
+        <LoadingState />
+      ) : error ? (
+        <ErrorState error={error} />
+      ) : data ? (
+        <Accordion allowZeroExpanded>
+          {data.map((item: DropdownContent) => (
+            <AccordionItem key={item.uuid}>
+              <AccordionItemHeading className="text-lg px-2 border-solid border-b-2 border-white">
+                <AccordionItemButton>
+                  <DropdownHeading text={item.heading} />
+                </AccordionItemButton>
+              </AccordionItemHeading>
+              <AccordionItemPanel>
+                <Markdown>{item.content}</Markdown>
+              </AccordionItemPanel>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      ) : null}
+    </>
+  );
+}
+
+function DropdownHeading({ text }: { text: string }) {
   const icon = "+";
 
   return (
@@ -17,36 +62,11 @@ export function DropdownHeading({ text }: { text: string }) {
   );
 }
 
-export function DropdownItem() {
+function DropdownItem() {
   return (
     <div>
       <h3>On the phone</h3>
       <p>some text here.</p>
     </div>
-  );
-}
-
-export default function Dropdowns() {
-  const items = [
-    {
-      uuid: 123,
-      heading: "How to call your MP",
-      content: DropdownItem(),
-    },
-  ];
-
-  return (
-    <Accordion allowZeroExpanded>
-      {items.map((item) => (
-        <AccordionItem key={item.uuid}>
-          <AccordionItemHeading className="text-lg px-2 border-solid border-b-2 border-white">
-            <AccordionItemButton>
-              <DropdownHeading text={item.heading} />
-            </AccordionItemButton>
-          </AccordionItemHeading>
-          <AccordionItemPanel>{item.content}</AccordionItemPanel>
-        </AccordionItem>
-      ))}
-    </Accordion>
   );
 }
