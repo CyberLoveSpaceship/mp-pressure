@@ -5,7 +5,7 @@ import fs from "fs/promises";
 import Markdown from "react-markdown";
 import matter from "gray-matter";
 import { ReactElement } from "react";
-import { Params, Locale } from "~/locale";
+import { Params, Locale, DEFAULT_LOCALE } from "~/locale";
 
 export type DropdownItem = {
   heading: string;
@@ -16,14 +16,26 @@ type LocaleDropdowns = { [L in Locale]: DropdownItem[] };
 
 export default async function Home({ params: { lang } }: { params: Params }) {
   const allDropdownItems = await getDropdownItems();
-  const dropdownItems = allDropdownItems[lang];
+  const currLocaleDropdownItems = allDropdownItems[lang];
+
+  // Fallback to default locale if no notes. Better some information than none, right?
+  const activeDropdownItems =
+    currLocaleDropdownItems.length != 0
+      ? currLocaleDropdownItems
+      : allDropdownItems[DEFAULT_LOCALE];
+
   return (
     <Suspense>
-      <RepSearch dropdownItems={dropdownItems} />
+      <RepSearch dropdownItems={activeDropdownItems} />
     </Suspense>
   );
 }
 
+/*
+ * Retrieve headings and contents for dropdown items.
+ * Reads a given path for a directory with locales as subdirectories and valid filetypes (md) inside those.
+ * Gathers headings from frontmatter and renders content to a ReactElement.
+ * */
 async function getDropdownItems() {
   const dropdownsContentPath = path.join("public", "content", "dropdowns");
   const langs = await fs.readdir(dropdownsContentPath);
