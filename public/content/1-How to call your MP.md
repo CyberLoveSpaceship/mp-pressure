@@ -15,4 +15,4 @@
 - Remain calm and respectful in dialogue. Be willing to work with them.
 - Follow up: Find out what actions were taken as a result of your call, and respond appropriately.
 
-Source: [ Citizens for Public Justice ](https://www.figma.com/file/BoATmYO2gf4EWhJ59beDbM/Palestine-solidarity-site?type=design&node-id=46-1084&mode=design&t=6FXswd8R1mmrGQUp-4)
+Source: [ Citizens for Public Justice ](https://cpj.ca/calling-your-mp/)
