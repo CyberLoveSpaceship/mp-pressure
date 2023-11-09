@@ -14,8 +14,8 @@ export default function Dropdowns({ items }: { items: DropdownItem[] }) {
   return (
     <>
       <Accordion allowZeroExpanded>
-        {items.map((item: DropdownItem) => (
-          <AccordionItem key={item.uuid}>
+        {items.map((item: DropdownItem, index) => (
+          <AccordionItem key={index}>
             <AccordionItemHeading className="text-lg mb-4 px-2 border-solid border-b-2 border-white">
               <AccordionItemButton>
                 <div className="flex justify-between">

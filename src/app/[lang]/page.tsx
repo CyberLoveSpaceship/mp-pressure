@@ -6,7 +6,6 @@ import Markdown from "react-markdown";
 import { ReactElement } from "react";
 
 export type DropdownItem = {
-  uuid: number;
   heading: string;
   content: ReactElement<any, any>;
 };
@@ -38,7 +37,6 @@ export async function getDropdownItems() {
         </>
       );
       const dropdownContent: DropdownItem = {
-        uuid: index,
         heading,
         content: contentRendered,
       };
