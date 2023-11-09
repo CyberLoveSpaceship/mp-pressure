@@ -1,16 +1,9 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
-bun.lockb
 
-# testing
-/coverage
-
-# production
-dist
+# next.js
+/.next/
+/out/
 
 # misc
 .DS_Store
@@ -24,16 +17,7 @@ yarn-error.log*
 # local env files
 .env*.local
 
-# netlify
-.netlify
-
-# vercel
-.vercel
-
-# next
-.next
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
+bun.lockb

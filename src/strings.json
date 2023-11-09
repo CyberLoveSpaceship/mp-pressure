@@ -1,0 +1,50 @@
+{
+  "title": {
+    "en": "MP Pressure",
+    "fr": "MP Pressure"
+  },
+  "description": {
+    "en": "Tool for contacting your MP",
+    "fr": "Un outil pour contacter votre député·e."
+  },
+  "footer": {
+    "en": "No data collected.",
+    "fr": "Aucune donnée n'est collectée."
+  },
+  "loading": {
+    "en": "Loading...",
+    "fr": "Chargement..."
+  },
+  "error": {
+    "en": "An error occurred:",
+    "fr": "Une erreur est survenue :"
+  },
+  "enter-postal": {
+    "en": "Enter your postal code",
+    "fr": "Entrez votre code postal"
+  },
+  "search-button": {
+    "en": "Search",
+    "fr": "Rechercher"
+  },
+  "error-input-postal": {
+    "en": "Input your postal code.",
+    "fr": "Saisir votre code postal."
+  },
+  "error-postal-format": {
+    "en": "Postal code should be in the format “H0H 0H0”.",
+    "fr": "Le code postal devrait avoir le format “H0H 0H0”."
+  },
+  "no-rep-result": {
+    "en": "No representatives found.",
+    "fr": "Aucun·e député·e n'a été trouvé·e."
+  },
+  "who-to-contact": {
+    "en": "Who to contact",
+    "fr": "Personnes à contacter"
+  },
+  "notes": {
+    "en": "Notes",
+    "fr": "Remarques"
+  }
+}

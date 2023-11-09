@@ -26,72 +26,26 @@ A tool to ease barriers on reaching out to local representatives. It takes a use
 
 The tool uses the [Represent API](https://represent.opennorth.ca/) to gather info on representatives based on a postal code.
 
-The site is currently built with Astro with React components.
+The site is built with [Next.js](https://nextjs.org/).
 
 To start, run:
 
-```bash
+```sh
 npm install
 npm run dev
 ```
-
-### Sharing state between components
-
-Astro recommends the [Nano Stores](https://docs.astro.build/en/core-concepts/sharing-state/) library.
-
-- lightweight
-- framework-agnostic
-
-Register your state in `src/scripts/state.js` and import `useStore` to access it.
-
-## Deployment
-
-The website is hosted on Netlify. Use the `netlify-cli` and [this tutorial](https://www.netlify.com/blog/astro-ssr/)
-
-## Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Single components in diff languages (.astro, .jsx, ...)
-│   ├── styles/
-│   │   └── Global styles and files for preprocessors.
-│   ├── scripts/
-│   │   └── Scripts to be loaded on build time.
-│   ├── layouts/
-│   │   └── Layouts for entire pages.
-│   └── pages/
-│       └── Actual pages to be rendered.
-├── dist/
-│   └── Build artifacts.
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-> Note: A previous iteration of this repo used Next.js. These files were kept in the repo under `next.bak` for reference.
 
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command         | Action                            |
+| :-------------- | :-------------------------------- |
+| `npm install`   | Installs dependencies             |
+| `npm run dev`   | Starts local dev server           |
+| `npm run build` | Build production site to `./out/` |
+
+---
 
 ## Represent API Info
 
