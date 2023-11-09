@@ -5,18 +5,18 @@ import fs from "fs/promises";
 import Markdown from "react-markdown";
 import matter from "gray-matter";
 import { ReactElement } from "react";
+import { Params, Locale } from "~/locale";
 
 export type DropdownItem = {
   heading: string;
   content: ReactElement<any, any>;
 };
 
-type Langs = "en" | "fr";
-type LangDropdowns = { [L in Langs]: DropdownItem[] };
+type LocaleDropdowns = { [L in Locale]: DropdownItem[] };
 
-export default async function Home() {
+export default async function Home({ params: { lang } }: { params: Params }) {
   const allDropdownItems = await getDropdownItems();
-  const dropdownItems = allDropdownItems.en;
+  const dropdownItems = allDropdownItems[lang];
   return (
     <Suspense>
       <RepSearch dropdownItems={dropdownItems} />
@@ -29,7 +29,7 @@ async function getDropdownItems() {
   const langs = await fs.readdir(dropdownsContentPath);
 
   // get all dropdowns into array of obj
-  const dropdowns: LangDropdowns = (
+  const dropdowns: LocaleDropdowns = (
     await Promise.all(
       langs.map(async (lang) => {
         const langPath = path.join(dropdownsContentPath, lang);
@@ -58,7 +58,7 @@ async function getDropdownItems() {
           key: lang,
           val: langDropdowns,
         } as {
-          key: Langs;
+          key: Locale;
           val: DropdownItem[];
         };
       }),
@@ -67,7 +67,7 @@ async function getDropdownItems() {
     // merge objects into single object with lang keys
     acc[curr.key] = curr.val;
     return acc;
-  }, {} as LangDropdowns);
+  }, {} as LocaleDropdowns);
 
   return dropdowns;
 }
