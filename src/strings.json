@@ -42,5 +42,9 @@
   "who-to-contact": {
     "en": "Who to contact",
     "fr": "Personnes à contacter"
+  },
+  "notes": {
+    "en": "Notes",
+    "fr": "Remarques"
   }
 }

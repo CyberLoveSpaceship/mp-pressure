@@ -4,7 +4,7 @@ export type Locale = keyof (typeof strings)["title"];
 
 export type Params = { lang: Locale };
 
-const DEFAULT_LOCALE: Locale = "en";
+export const DEFAULT_LOCALE: Locale = "en";
 
 /**
  * Localize a string (from `strings.json`) using the given `locale`.
