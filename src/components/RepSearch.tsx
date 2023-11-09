@@ -10,8 +10,13 @@ import Dropdowns from "./Dropdowns";
 import { fetcher } from "~/utils";
 import { ErrorState, LoadingState } from "./SWRStates";
 import useLocale from "~/use-locale";
+import { DropdownItem } from "~/app/[lang]/page";
 
-export default function RepresentativeSearch() {
+export default function RepresentativeSearch({
+  dropdownItems,
+}: {
+  dropdownItems: DropdownItem[];
+}) {
   const l = useLocale();
   const search = useSearchParams();
   const postCode = search.get("p");
@@ -46,7 +51,7 @@ export default function RepresentativeSearch() {
           </div>
           <div>
             <h2 className="mb-4 text-xl font-medium">{l("notes")}</h2>
-            <Dropdowns />
+            <Dropdowns items={dropdownItems} />
           </div>
         </div>
       ) : null}
