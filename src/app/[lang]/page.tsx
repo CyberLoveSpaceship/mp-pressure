@@ -38,6 +38,7 @@ export default async function Home({ params: { lang } }: { params: Params }) {
  * */
 async function getDropdownItems() {
   const dropdownsContentPath = path.join("public", "content", "dropdowns");
+  const validFileTypes = ["md", "mdx"];
   const langs = await fs.readdir(dropdownsContentPath);
 
   // get all dropdowns into array of obj
@@ -45,7 +46,9 @@ async function getDropdownItems() {
     await Promise.all(
       langs.map(async (lang) => {
         const langPath = path.join(dropdownsContentPath, lang);
-        const fileNames = await fs.readdir(langPath);
+        const fileNames = (await fs.readdir(langPath)).filter((fn) =>
+          validFileTypes.includes(path.extname(fn).replace(".", "")),
+        );
 
         // get dropdowns per lang
         const langDropdowns = await Promise.all(
