@@ -1,3 +1,7 @@
+---
+heading: Talking points for Palestine
+---
+
 - Mention that you’re a constituent/taxpayer (icky language but it makes them value what you’re saying)
 - Talk about your personal experience (how it has impacted your day-to-day, etc.)
 - We’ve been watching the Canadian government and are ashamed to call them our government
